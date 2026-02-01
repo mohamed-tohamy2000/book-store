@@ -65,7 +65,7 @@ export default function AddCodePage() {
                                 </div>
 
                                 {/* Button */}
-                                <BtnType lable="Reast Password" />
+                                <BtnType lable="Reset Password" />
 
                                 <div className='mt-5'>
                                     <p className='text-black font-semibold text-center '>Didn't receive a code?
