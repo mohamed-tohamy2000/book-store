@@ -15,7 +15,7 @@ export default function UiComponant({ name, label, placeholder, type }) {
           name={name}
           type={isPassword && showPassword ? "text" : type}
           placeholder={placeholder}
-          className="text-sm text-gray-950 w-full border-[#22222233] p-3 rounded-lg border outline-none focus:border-mainColor"
+          className="text-sm  text-gray-950 w-full border-[#22222233] p-3 rounded-lg border outline-none focus:border-mainColor"
         />
          {isPassword && (
           <button
