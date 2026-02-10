@@ -29,7 +29,7 @@ export default function Footer() {
         </div>
 
         {/* الخط الفاصل */}
-        <div className="w-full h-[1px] bg-gray-500/30"></div>
+        <div className="w-full h-px bg-gray-500/30"></div>
 
         {/* الجزء السفلي المعدل */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-300">

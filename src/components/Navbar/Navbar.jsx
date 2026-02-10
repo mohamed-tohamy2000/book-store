@@ -1,9 +1,12 @@
 import NavbarLogo from "./NavbarLogo";
 import LinkItem from "../ui/LinkItem";
 import Button from "../ui/Button";
-import { Link,  useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useAuthStore } from "../../store";
+import UserName from "./UserName";
 
 export default function Navbar() {
+  const { isAuthenticated } = useAuthStore();
   const location = useLocation();
   let links = [
     { nav: "home", path: "/" },
@@ -37,14 +40,20 @@ export default function Navbar() {
               })}
             </div>
           </div>
-          <div className="nav-btns flex items-center gap-3">
-            <Button className="w-fit" isMainBtn={true}>
-              <Link to={"/login"}> login</Link>
-            </Button>
-            <Button className="w-fit" isMainBtn={false}>
-              <Link to={"/signup"}> signup</Link>
-            </Button>
-          </div>
+          {isAuthenticated ? (
+            <div className="">
+              <UserName />
+            </div>
+          ) : (
+            <div className="nav-btns flex items-center gap-3">
+              <Button className="w-fit" isMainBtn={true}>
+                <Link to={"/login"}> login</Link>
+              </Button>
+              <Button className="w-fit" isMainBtn={false}>
+                <Link to={"/signup"}> signup</Link>
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </>
