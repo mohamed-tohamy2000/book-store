@@ -13,20 +13,30 @@ export function ProductInfo({
   rating,
   price,
   stock,
-  Shipping,
-  Discountcode
+  freeShipping,
+  discountCode,
 }) {
   return (
-    <div className="space-y-4">
+    <div className="w-full flex flex-col gap-4">
       <ProductHeader title={title} description={description} />
       <ProductMeta meta={meta} />
-      <Rating {...rating} />
-      <Price {...price} />
-      <StockBadge stock={stock} />
-      <StockBadge stock={Shipping} />
-      <StockBadge stock={Discountcode} />
-      <QuantitySelector />
-      <ActionButtons />
+      <div className="flex justify-between">
+        <Rating {...rating} />
+        <StockBadge
+          stock={stock}
+          freeShipping={freeShipping}
+          discountCode={discountCode}
+        />
+      </div>
+      <div className="flex justify-between"> 
+        <div className="">
+          <Price {...price} />
+        </div>
+        <div className="flex gap-3">
+          <QuantitySelector />
+          <ActionButtons />
+        </div>
+      </div>
     </div>
   );
 }

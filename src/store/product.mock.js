@@ -33,8 +33,8 @@ export const productMock = {
     },
 
     stock: "In Stock",
-    Shipping: "Free Shipping Today",
-    Discountcode: "Discount code: Ne212",
+    freeShipping: "Free Shipping Today",
+    discountCode: "Ne212",
   },
 
   details: [

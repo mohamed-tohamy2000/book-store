@@ -11,14 +11,16 @@ export default function ProductPage() {
             <Herosection h={"h-[120px]"} />
           </div>
    
-    <div className="max-w-7xl mx-auto p-6">
+    <div className="flex flex-col justify-center items-center ">
         
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+     <div className="container p-16">
+         <div className="flex gap-8 h-150 ">
         <ProductGallery {...productMock.gallery} />
         <ProductInfo {...productMock.info} />
       </div>
 
       <ProductTabs details={productMock.details} />
+     </div>
     </div></>
   );
 }
