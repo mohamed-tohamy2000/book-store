@@ -12,6 +12,7 @@ import BookPage from "../pages/BookPage";
 import ProductPage from "../pages/ProductPage";
 import CartPage from "../pages/CartPage";
 import Profile from "../pages/Profile";
+import WishList from "../pages/WishList";
 
 export default function RouterApp() {
   return (
@@ -30,6 +31,7 @@ export default function RouterApp() {
           <Route path="details" element={<ProductPage />} />
           <Route path="Cart" element={<CartPage />} />
           <Route path="Profile" element={<Profile />} />
+          <Route path="wishlist" element={<WishList />} />
           <Route path="*" element={<NotFondPage/>} />
         </Route>
       </Routes>
