@@ -3,7 +3,7 @@ import img from "../../../public/images/silider.png"
 
 export function CartRow() {
   return (
-    <tbody className="grid grid-cols-14 items-center h-75.5 p-4 bg-white mb-5 ">
+    <tr className="grid grid-cols-14 items-center h-75.5 p-4 bg-white mb-5 ">
 
       {/* Item Column */}
       <td className="col-span-6 h-full flex gap-4">
@@ -70,6 +70,6 @@ export function CartRow() {
         </button>
        </td>
 
-    </tbody>
+    </tr>
   );
 }

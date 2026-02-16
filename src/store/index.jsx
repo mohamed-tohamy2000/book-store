@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -59,3 +60,15 @@ export const useAuthStore = create(
     },
   ),
 );
+
+export const useNavProductPage = () => {
+  const { productId } = useParams();
+  const nav = [
+    { link: "ProductDetails", path: `/product/${productId}/details` },
+    { link: "CustomerReviews", path: `/product/${productId}/review` },
+    { link: "Recomminded", path: `/product/${productId}/recommided` },
+   
+  ];
+
+  return { nav };
+};

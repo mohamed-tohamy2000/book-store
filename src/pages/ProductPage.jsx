@@ -1,7 +1,7 @@
 import Herosection from "../components/HeroSection/Herosection";
 import { ProductGallery } from "../components/ProductPage/ProductGallery";
 import { ProductInfo } from "../components/ProductPage/ProductInfo";
-import { ProductTabs } from "../components/ProductPage/ProductTabs";
+import { ProductTabs } from "../components/tabDetails/ProductTabs";
 import { productMock } from "../store/product.mock";
 
 export default function ProductPage() {
