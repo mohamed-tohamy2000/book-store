@@ -123,7 +123,7 @@ export default function SignupPage() {
               ptow=" Login"
               ask=""
               stet=" Agree with Terms & Conditions"
-              btn="Sign Up"
+              lable="Sign Up"
               name="terms"
             />
           </Form>

@@ -65,7 +65,7 @@ export default function LoginPage() {
                 ptow=" Signup"
                 ask="Forget password?"
                 stet="Remember me"
-                btn="Log in"
+                lable="Log in"
                 name="rememberMe"
               />
             </Form>
