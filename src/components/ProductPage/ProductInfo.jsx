@@ -15,6 +15,12 @@ export function ProductInfo({
   stock,
   freeShipping,
   discountCode,
+  quantity,
+  onIncreaseQuantity,
+  onDecreaseQuantity,
+  onAddToCart,
+  onAddToWishlist,
+  isLoading,
 }) {
   return (
     <div className="w-full flex flex-col gap-4">
@@ -33,8 +39,16 @@ export function ProductInfo({
           <Price {...price} />
         </div>
         <div className="flex gap-3">
-          <QuantitySelector />
-          <ActionButtons />
+          <QuantitySelector
+            quantity={quantity}
+            onIncrease={onIncreaseQuantity}
+            onDecrease={onDecreaseQuantity}
+          />
+          <ActionButtons
+            onAddToCart={onAddToCart}
+            onAddToWishlist={onAddToWishlist}
+            isLoading={isLoading}
+          />
         </div>
       </div>
     </div>

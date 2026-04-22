@@ -19,6 +19,7 @@ import CustomerReviews from "../components/tabDetails/CustomerReviews";
 import silider from "../../src/assets/images/sectionlogo/silider.png";
 import FlashSaleSlider from "../components/FlashSale/FlashSaleSlider";
 import History from "../pages/History";
+import AdminPage from "../pages/AdminPage";
 
 export default function RouterApp() {
    const dummyItems = [1, 2, 3, 4];
@@ -53,6 +54,7 @@ export default function RouterApp() {
           <Route path="Cart" element={<CartPage />} />
           <Route path="wishlist" element={<WishList />} />
           <Route path="History" element={<History />} />
+          <Route path="admin" element={<AdminPage />} />
           <Route path="*" element={<NotFondPage />} />
         </Route>
       </Routes>

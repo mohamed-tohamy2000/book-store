@@ -1,22 +1,19 @@
-import axios from "axios";
 import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import UiComponant from "../components/Authentication/UiComponant";
 import SoBtn from "../components/Authentication/SoBtn";
 import toast from "react-hot-toast";
-import { domain } from "../store/domain";
 import Herosection from "../components/HeroSection/Herosection";
+import { authApi } from "../api";
 
 export default function SignupPage() {
   const navigate = useNavigate();
 
   const handleRegister = async (values) => {
-    const endPoint = "/register";
-    const url = domain + endPoint;
-
     if (values.password !== values.confirmpassword) {
       toast.error("Password not matching");
+      return;
     }
 
     const data = {
@@ -28,15 +25,13 @@ export default function SignupPage() {
     };
 
     try {
-      const res = await axios.post(url, data);
+      const res = await authApi.register(data);
       console.log(res);
       toast.success(res.data.message);
       navigate("/login");
     } catch (error) {
       console.log(error);
-      if (error.status == 500) {
-        toast.error("Your Email Is Orady Tekan");
-      }
+      toast.error(error.response?.data?.message || "Registration failed");
     }
   };
   const SignupSchema = Yup.object({

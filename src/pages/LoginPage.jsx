@@ -1,13 +1,12 @@
-import axios from "axios";
 import { Formik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import UiComponant from "../components/Authentication/UiComponant";
 import SoBtn from "../components/Authentication/SoBtn";
-import toast, { Toaster } from "react-hot-toast";
-import { domain } from "../store/domain";
+import toast from "react-hot-toast";
 import Herosection from "../components/HeroSection/Herosection";
 import { useAuthStore } from "../store";
+import { authApi } from "../api";
 
 export default function LoginPage() {
   const { login } = useAuthStore();
@@ -20,12 +19,12 @@ export default function LoginPage() {
   });
 
   const handleSubmit = async (values) => {
-    const url = domain + "/login";
+    const { rememberMe, ...data } = values;
 
     try {
-      const res = await axios.post(url, values);
+      const res = await authApi.login(data);
       const { token } = res.data.data;
-      login(token, values.rememberMe || false);
+      login(token, rememberMe || false);
       console.log(res.data.data.token);
       toast.success(res.data.message);
       navigate("/");
@@ -64,6 +63,7 @@ export default function LoginPage() {
                 to={"/signup"}
                 ptow=" Signup"
                 ask="Forget password?"
+                askTo="/forget-password"
                 stet="Remember me"
                 lable="Log in"
                 name="rememberMe"

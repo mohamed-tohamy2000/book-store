@@ -5,6 +5,9 @@ export default function SummaryCard({
   shipping,
   tax,
   total,
+  onCheckout,
+  checkoutLoading,
+  onKeepShopping,
 }) {
   return (
     <div className=" w-106 h-93.75 gap-10 ">
@@ -24,11 +27,20 @@ export default function SummaryCard({
       />
 
       <div className="mt-6 space-y-3">
-        <button className="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg transition">
+        <button
+          type="button"
+          onClick={onCheckout}
+          disabled={checkoutLoading}
+          className="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg transition"
+        >
           Check out
         </button>
 
-        <button className="w-full border border-pink-600 text-pink-600 py-3 rounded-lg hover:bg-pink-50 transition">
+        <button
+          type="button"
+          onClick={onKeepShopping}
+          className="w-full border border-pink-600 text-pink-600 py-3 rounded-lg hover:bg-pink-50 transition"
+        >
           Keep Shopping
         </button>
       </div>

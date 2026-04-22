@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useNavProductPage } from "../../store/index";
 
 export function ProductTabs({ details = [] }) {

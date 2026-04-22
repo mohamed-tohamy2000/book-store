@@ -1,9 +1,15 @@
 import { CartRow } from "./CartRow";
 
-export default function CartTable() {
+export default function CartTable({
+  items = [],
+  onIncrease,
+  onDecrease,
+  onDelete,
+  emptyMessage = "No items found",
+}) {
   return (
-    <div className="w-342.75  flex justify-center items-center ">
-        <table >
+    <div className="w-342.75 flex justify-center items-center">
+        <table className="w-full">
       
       {/* Header */}
       <thead >
@@ -18,9 +24,23 @@ export default function CartTable() {
 
       {/* Row */}
      <tbody>
-       <CartRow />
-      <CartRow />
-      <CartRow />
+      {items.length ? (
+        items.map((item, index) => (
+          <CartRow
+            key={item.id || item.book_id || index}
+            item={item}
+            onIncrease={onIncrease}
+            onDecrease={onDecrease}
+            onDelete={onDelete}
+          />
+        ))
+      ) : (
+        <tr>
+          <td className="p-6 text-center text-gray-500" colSpan={14}>
+            {emptyMessage}
+          </td>
+        </tr>
+      )}
      </tbody>
 
     </table>

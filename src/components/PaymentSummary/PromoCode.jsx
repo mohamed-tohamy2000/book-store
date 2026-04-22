@@ -19,7 +19,7 @@ export default function PromoCode({ onApply }) {
         initialValues={{ promo: "" }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
-          onApply(values.promo);
+          onApply?.(values.promo);
           resetForm();
         }}
       >

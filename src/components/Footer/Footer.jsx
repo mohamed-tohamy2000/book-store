@@ -21,10 +21,18 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <FaFacebook className="w-6 h-6 hover:text-blue-400 cursor-pointer transition-colors" />
-            <FaInstagram className="w-6 h-6 hover:text-pink-400 cursor-pointer transition-colors" />
-            <AiOutlineYoutube className="w-6 h-6 hover:text-red-500 cursor-pointer transition-colors" />
-            <FaXTwitter className="w-6 h-6 hover:text-gray-400 cursor-pointer transition-colors" />
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+              <FaFacebook className="w-6 h-6 hover:text-blue-400 cursor-pointer transition-colors" />
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+              <FaInstagram className="w-6 h-6 hover:text-pink-400 cursor-pointer transition-colors" />
+            </a>
+            <a href="https://www.youtube.com" target="_blank" rel="noreferrer">
+              <AiOutlineYoutube className="w-6 h-6 hover:text-red-500 cursor-pointer transition-colors" />
+            </a>
+            <a href="https://x.com" target="_blank" rel="noreferrer">
+              <FaXTwitter className="w-6 h-6 hover:text-gray-400 cursor-pointer transition-colors" />
+            </a>
           </div>
         </div>
 

@@ -1,11 +1,11 @@
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import UiComponant from '../components/Authentication/UiComponant';
 import BtnType from "../components/Authentication/BtnType";
 import Herosection from "../components/HeroSection/Herosection";
+import { authApi } from "../api";
 
 export default function ForgetPasswordPage() {
   const navigate = useNavigate();
@@ -14,23 +14,19 @@ export default function ForgetPasswordPage() {
     email: Yup.string().email("Invalid email").required("Email is required"),
   });
   const handleSubmit = async (values) => {
-    const domain = "https://bookstore.eraasoft.pro/api";
-    const endPoint = "/forget-password";
-    const url = domain + endPoint;
-
     const data = {
       email: values.email,
     };
 
     try {
-      const res = await axios.post(url, data);
+      const res = await authApi.forgetPassword(data);
       console.log(res.data);
+      sessionStorage.setItem("email", values.email);
       toast.success(res.data.message);
       navigate("/add-code");
     } catch (error) {
       console.log(error);
-
-      toast.error(error);
+      toast.error(error.response?.data?.message || "Something went wrong");
     }
   };
 

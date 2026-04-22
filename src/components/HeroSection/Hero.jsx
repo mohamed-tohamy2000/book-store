@@ -1,12 +1,19 @@
 import img from "../../assets/images/img.png"
 import Search from "../ui/Search"
+import { useNavigate } from "react-router-dom";
 
 export default function Hero({showSearch}) {
+    const navigate = useNavigate();
+
     return (
         <div className="relative h-full bg-cover bg-center " style={{ backgroundImage: `url(${img})` }}>
             <div className="absolute inset-0 bg-black/60 flex justify-center items-center">
              {showSearch === true ? (
-          <Search isMainBtn={true} width={"fit"} />
+          <Search
+            isMainBtn={true}
+            width={"fit"}
+            onSearch={() => navigate("/book")}
+          />
         ) : showSearch === false ? (
           <div className="text-white text-center w-163">
             <h1 className="text-[48px] font-bold">About Bookshop</h1>

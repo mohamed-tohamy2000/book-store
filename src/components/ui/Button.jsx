@@ -1,8 +1,9 @@
-export default function Button({ children, isMainBtn, classn }) {
+export default function Button({ children, isMainBtn, classn, ...props }) {
   return (
     <>
       <button
-        className={`${classn? classn :    " rounded-lg  px-4 py-3  "  }capitalize border border-mainColor
+        {...props}
+        className={`${classn ? classn : " rounded-lg  px-4 py-3  "}capitalize border border-mainColor
           ${
             isMainBtn
               ? "bg-mainColor text-white hover:bg-white hover:shadow hover:shadow-mainColor hover:text-mainColor"
